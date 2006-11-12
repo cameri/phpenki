@@ -28,14 +28,14 @@
      for ($x = 0; $x < $dircount; $x++){
       echo("<tr>");
       if($dircount + $filecount == $count + 1){
-       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_el.gif\" /></td>");
+       echo("<el>");
       }
       else{
-       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_tri.gif\" /></td>");
+       echo("<tri>");
       }
-      echo("<td class=\"tree_ico_plus\" width=\"16\" id=\"" . $id . "_" . ($x + 1) . "_tab\" onclick=\"AlterBranch('" . $dir . $dirs[$x] . "/','" . $id . "_" . ($x + 1) . "')\" align=\"center\"><img id=\"" . $id . "_" . ($x + 1) . "_img\" src=\"themes/" . $theme ."/images/tree_dir_close.gif\" /></td>");
-      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_unchecked.gif\" /></td>");
-      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_folder.gif\" /></td>");
+      echo("<td width=\"16\" id=\"" . $id . "_" . ($x + 1) . "_tab\" onclick=\"AlterBranch('" . $dir . $dirs[$x] . "/','" . $id . "_" . ($x + 1) . "')\" align=\"center\"><img id=\"" . $id . "_" . ($x + 1) . "_img\" src=\"themes/" . $theme ."/images/tree_dir_close.gif\" /></td>");
+      echo("<uncheck>");
+      echo("<folder>");
       echo("<td class=\"tree_dir\" align=\"left\">$dirs[$x]</td>");
       echo("</tr>");
       echo("<tr>");
@@ -55,14 +55,14 @@
      for ($x = 0; $x < $filecount; $x++){
       echo("<tr>");
       if($dircount + $filecount == $count + 1){
-       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_el.gif\" /></td>");
+       echo("<el>");
       }
       else{
-       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_tri.gif\" /></td>");
+       echo("<tri>");
       }
-      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_horz.gif\" /></td>");
-      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_unchecked.gif\" /></td>");
-      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_file.gif\" /></td>");
+      echo("<horz>");
+      echo("<uncheck>");
+      echo("<file>");
       echo("<td class=\"tree_file\">" . $files[$x] . "</td>");
       echo("</tr>");
       $count++;
