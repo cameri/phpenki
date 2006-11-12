@@ -22,7 +22,7 @@
     }
    }
    if($dircount + $filecount > 0){
-    echo("<table class=\"tree\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">");
+    echo("<table class=\"tree\" cellpadding=\"0\" cellspacing=\"0\">");
     if($dircount > 0){
      sort($dirs);
      for ($x = 0; $x < $dircount; $x++){
@@ -33,7 +33,9 @@
       else{
        echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_tri.gif\" /></td>");
       }
-      echo("<td class=\"tree_ico_plus\" width=\"16\" id=\"" . $id . ($x + 1) . "_tab\" onclick=\"AlterBranch('" . $dir . $dirs[$x] . "/','" . $id . ($x + 1) . "')\" align=\"center\"><img id=\"" . $id . ($x + 1) . "_img\" src=\"themes/" . $theme ."/images/tree_dir_close.gif\" /></td>");
+      echo("<td class=\"tree_ico_plus\" width=\"16\" id=\"" . $id . "_" . ($x + 1) . "_tab\" onclick=\"AlterBranch('" . $dir . $dirs[$x] . "/','" . $id . "_" . ($x + 1) . "')\" align=\"center\"><img id=\"" . $id . "_" . ($x + 1) . "_img\" src=\"themes/" . $theme ."/images/tree_dir_close.gif\" /></td>");
+      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_unchecked.gif\" /></td>");
+      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_folder.gif\" /></td>");
       echo("<td class=\"tree_dir\" align=\"left\">$dirs[$x]</td>");
       echo("</tr>");
       echo("<tr>");
@@ -43,7 +45,7 @@
       else{
        echo("<td class=\"tree_vert\" width=\"16\"></td>");
       }
-      echo("<td colspan=\"2\"><div id=\"" . $id . ($x + 1) . "\"></div></td>");
+      echo("<td colspan=\"4\"><div id=\"" . $id . "_" . ($x + 1) . "\"></div></td>");
       echo("</tr>");
       $count++;
      }
@@ -59,6 +61,8 @@
        echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_tri.gif\" /></td>");
       }
       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_horz.gif\" /></td>");
+      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_unchecked.gif\" /></td>");
+      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_file.gif\" /></td>");
       echo("<td class=\"tree_file\">" . $files[$x] . "</td>");
       echo("</tr>");
       $count++;
