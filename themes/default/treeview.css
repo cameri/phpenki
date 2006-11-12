@@ -1,0 +1,34 @@
+table.tree
+{
+font-size: 12px
+}
+
+td.tree_dir
+{
+color: #00409D
+}
+
+td.tree_file
+{
+color: #000000
+}
+
+td.tree_tri
+{
+background: url(images/tree_tri.gif)
+}
+
+td.tree_vert
+{
+background: url(images/tree_vert.gif)
+}
+
+td.tree_horz
+{
+background: url(images/tree_horz.gif)
+}
+
+td.tree_el
+{
+background: url(images/tree_el.gif)
+}

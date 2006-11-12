@@ -48,7 +48,6 @@
       $count++;
      }
     }
-    echo("\n");
     if($filecount > 0){
      sort($files);
      for ($x = 0; $x < $filecount; $x++){
