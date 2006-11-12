@@ -45,7 +45,7 @@ function AddBranch(dir, id){
  }
  var url="getbranch.php"
  url=url+"?dir="+dir
- url=url+"&id="+id+"_"
+ url=url+"&id="+id
  url=url+"&theme=<?php echo($theme); ?>"
  xmlHttp.onreadystatechange=treeStateChanged
  xmlHttp.open("GET",url,true)
@@ -67,7 +67,7 @@ href="themes/<?php echo($theme); ?>/treeview.css" />
 <body>
 <?php
  if($dir != "" && substr($dir,0,1) != "/"){
-  echo("<div class=\"tree_dir\">http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/" . $dir . "</div>");
+  echo("<div class=\"top_dir\">http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/" . $dir . "</div>");
   include("http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/getbranch.php?dir=" . $dir . "/&id=branch&theme=" . $theme);
  }
  else{
