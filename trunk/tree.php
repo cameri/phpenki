@@ -23,7 +23,6 @@ function GetXmlHttpObject(){
 ********TREE STUFF*********
 **************************/
 function AlterBranch(dir, id){
- cur_id = id
  if(document.getElementById(id + "_img").src=="<?php echo("http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/themes/" . $_GET["theme"]);?>/images/tree_dir_close.gif"){
   AddBranch(dir, id)
  }
@@ -38,6 +37,7 @@ function RemoveBranch(id){
 }
 
 function AddBranch(dir, id){ 
+ cur_id = id
  xmlHttp=GetXmlHttpObject()
  if (xmlHttp==null){
   alert ("Browser does not support HTTP Request")
@@ -53,8 +53,18 @@ function AddBranch(dir, id){
 }
 
 function treeStateChanged(){
- if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
-  document.getElementById(cur_id).innerHTML=xmlHttp.responseText
+ var strResp
+ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+  strResp = xmlHttp.responseText
+
+  //To reduce bandwidth, and increase speed.
+  strResp = strResp.replace(/<tri>/g, "<td width=\"16\"><img src=\"themes/<?php echo($theme);?>/images/tree_tri.gif\" /></td>")
+  strResp = strResp.replace(/<el>/g, "<td width=\"16\"><img src=\"themes/<?php echo($theme);?>/images/tree_el.gif\" /></td>")
+  strResp = strResp.replace(/<horz>/g, "<td width=\"16\"><img src=\"themes/<?php echo($theme);?>/images/tree_horz.gif\" /></td>")
+  strResp = strResp.replace(/<folder>/g, "<td width=\"16\"><img src=\"themes/<?php echo($theme);?>/images/tree_folder.gif\" /></td>")
+  strResp = strResp.replace(/<file>/g, "<td width=\"16\"><img src=\"themes/<?php echo($theme);?>/images/tree_file.gif\" /></td>")
+  strResp = strResp.replace(/<uncheck>/g, "<td width=\"16\"><img src=\"themes/<?php echo($theme);?>/images/tree_unchecked.gif\" /></td>")
+  document.getElementById(cur_id).innerHTML = strResp
   document.getElementById(cur_id + "_img").src="themes/<?php echo($theme);?>/images/tree_dir_open.gif"
  } 
 } 
@@ -67,8 +77,13 @@ href="themes/<?php echo($theme); ?>/treeview.css" />
 <body>
 <?php
  if($dir != "" && substr($dir,0,1) != "/"){
-  echo("<div class=\"top_dir\">http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/" . $dir . "</div>");
-  include("http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/getbranch.php?dir=" . $dir . "/&id=branch&theme=" . $theme);
+  echo("<div class=\"top_dir\" width=\"100%\">http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/" . $dir . "</div>");
+  //include("http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/getbranch.php?dir=" . $dir . "/&id=branch&theme=" . $theme);
+ echo("<div id=\"branch\"></div>");
+ echo("
+  <script type=\"text/javascript\">
+   AddBranch('" . $dir . "', 'branch')
+  </script>");
  }
  else{
   echo("No Directory Selected.<br />");
