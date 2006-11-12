@@ -67,7 +67,7 @@ href="themes/<?php echo($theme); ?>/treeview.css" />
 <body>
 <?php
  if($dir != "" && substr($dir,0,1) != "/"){
-  echo("http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/" . $dir . "<br />");
+  echo("<div class=\"tree_dir\">http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/" . $dir . "</div>");
   include("http://" . dirname($_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']) . "/getbranch.php?dir=" . $dir . "/&id=branch&theme=" . $theme);
  }
  else{

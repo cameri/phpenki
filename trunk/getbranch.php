@@ -28,10 +28,10 @@
      for ($x = 0; $x < $dircount; $x++){
       echo("<tr>");
       if($dircount + $filecount == $count + 1){
-       echo("<td class=\"tree_el\" style=\"width: 16px\"></td>");
+       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_el.gif\" /></td>");
       }
       else{
-       echo("<td class=\"tree_tri\" style=\"width: 16px\"></td>");
+       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_tri.gif\" /></td>");
       }
       echo("<td class=\"tree_ico_plus\" width=\"16\" id=\"" . $id . ($x + 1) . "_tab\" onclick=\"AlterBranch('" . $dir . $dirs[$x] . "/','" . $id . ($x + 1) . "')\" align=\"center\"><img id=\"" . $id . ($x + 1) . "_img\" src=\"themes/" . $theme ."/images/tree_dir_close.gif\" /></td>");
       echo("<td class=\"tree_dir\" align=\"left\">$dirs[$x]</td>");
@@ -41,7 +41,7 @@
        echo("<td style=\"width: 16px\"></td>");
       }
       else{
-       echo("<td class=\"tree_vert\" style=\"width: 16px\"></td>");
+       echo("<td class=\"tree_vert\" width=\"16\"></td>");
       }
       echo("<td colspan=\"2\"><div id=\"" . $id . ($x + 1) . "\"></div></td>");
       echo("</tr>");
@@ -53,12 +53,12 @@
      for ($x = 0; $x < $filecount; $x++){
       echo("<tr>");
       if($dircount + $filecount == $count + 1){
-       echo("<td class=\"tree_el\" style=\"width: 16px\"></td>");
+       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_el.gif\" /></td>");
       }
       else{
-       echo("<td class=\"tree_tri\" style=\"width: 16px\"></td>");
+       echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_tri.gif\" /></td>");
       }
-      echo("<td class=\"tree_horz\" style=\"width: 16px\"></td>");
+      echo("<td width=\"16\"><img src=\"themes/" . $theme ."/images/tree_horz.gif\" /></td>");
       echo("<td class=\"tree_file\">" . $files[$x] . "</td>");
       echo("</tr>");
       $count++;
