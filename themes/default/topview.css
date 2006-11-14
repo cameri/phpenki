@@ -1,0 +1,25 @@
+body
+{
+background-color: #FFFFFF;
+margin: 0px;
+}
+
+.toolbar
+{
+font-size: 14px;
+border: 1px;
+border-style: solid;
+border-color: #0040A0;
+color: #000000;
+spacing: 0px;
+padding: 0px;
+}
+
+.toolbutton
+{
+border: 1px;
+border-style: solid;
+border-color: #0040A0;
+background-color: #C0C0FF;
+padding: 3px
+}
